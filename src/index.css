@@ -1,13 +1,257 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  position: relative;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/*Navbar styling*/
+.nvb-container {
+  background-color: #ffd02c;
+  width: 100vw;
+  height: 7vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: start;
+  align-items: center;
+  align-content: center;
+}
+.d-img {
+  margin-left: 3vw;
+  margin-top: 1vh;
+}
+.logo {
+  width: 15vw;
+}
+
+.d-lSp {
+  text-decoration: none;
+  color: #0100bd;
+  margin-left: 45vw;
+  margin-right: 3vw;
+}
+
+.d-lLg {
+  text-decoration: none;
+  color: #0100bd;
+  margin-right: 3vw;
+}
+
+/*Footer slyling*/
+.container-ftr {
+  background-color: #ff4867;
+  width: 100vw;
+  height: 6vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: start;
+  align-items: center;
+  align-content: center;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+}
+.ftr-txt {
+  font-size: 3vw;
+}
+.md-txt {
+  margin-left: 3vw;
+  margin-right: 45vw;
+}
+.lnd-icn {
+  margin-right: 2vw;
+}
+
+/*Home styling*/
+.hm-container {
+  margin-top: 10vh;
+  margin-left: 8vw;
+  margin-right: 10vw;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: stretch;
+}
+.hm-tlt {
+  font-size: 10vw;
+  color: #0100bd;
+  margin-bottom: 2vh;
+}
+.hm-sbtlt {
+  font-size: 5vw;
+  color: #0100bd;
+  margin-bottom: 5vh;
+  text-align: center;
+}
+.hm-prg {
+  font-size: 3.5vw;
+  width: 80vw;
+  color: #0100bd;
+  margin-bottom: 8vh;
+  text-align: center;
+}
+.hm-img {
+  width: 85vw;
+}
+
+/*Sign Up Styling*/
+
+.SignupPage {
+  background-color: #81007f;
+  padding-top: 15vw;
+}
+
+.form-SU {
+  margin-top: 20vw;
+  width: 100vw;
+  height: 78vh;
+  border-radius: 35vw 0vw 0vw 0vw;
+  background-color: #0ec2a7;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: start;
+  align-items: center;
+  align-content: stretch;
+}
+.tlt-LG {
+  margin-top: 10vh;
+}
+.ipt-em {
+  background-color: #0ec2a7;
+  border: none;
+  border-bottom: 1px solid black;
+  margin-bottom: 1vh;
+}
+
+.int-SU {
+  background-color: #0ec2a7;
+  border: none;
+  border-bottom: 1px solid black;
+  margin-bottom: 1vh;
+}
+.btt-LG {
+  width: 20vw;
+  height: 3vh;
+  background-color: #81007f;
+  color: #ffffff;
+  border: none;
+}
+.SU-lg {
+  text-decoration: none;
+  color: #ffffff;
+}
+.lg-SP {
+  margin-top: 2vh;
+  margin-bottom: 1vh;
+}
+.error-message {
+  width: 80vw;
+  margin-left: 2vw;
+  color: #ff0000;
+  text-align: center;
+}
+
+/*Login Styling*/
+
+.LoginPage {
+  background-color: #81007f;
+  padding-top: 15vw;
+}
+.form-LG {
+  margin-top: 20vw;
+  width: 100vw;
+  height: 78vh;
+  border-radius: 35vw 0vw 0vw 0vw;
+  background-color: #0ec2a7;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: start;
+  align-items: center;
+  align-content: stretch;
+}
+.lbl-em {
+  margin-top: 10vh;
+}
+
+.int-SU {
+  background-color: #0ec2a7;
+  border: none;
+  border-bottom: 1px solid black;
+  margin-bottom: 1vh;
+}
+.btt-SU {
+  width: 20vw;
+  height: 3vh;
+  background-color: #81007f;
+  color: #ffffff;
+  border: none;
+}
+.LG-su {
+  text-decoration: none;
+  color: #ffffff;
+}
+.sp-LG {
+  margin-top: 2vh;
+  margin-bottom: 1vh;
+}
+
+/*Profile*/
+
+/*Create Event styling*/
+.CreateEventPage {
+  background-color: #81007f;
+  padding-top: 15vw;
+}
+.CE-frm {
+  margin-top: 20vw;
+  width: 100vw;
+  height: 78vh;
+  border-radius: 35vw 0vw 0vw 0vw;
+  background-color: #0ec2a7;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: start;
+  align-items: center;
+  align-content: stretch;
+}
+.CE-tlt {
+  margin-top: 10vh;
+}
+.int-CE {
+  background-color: #0ec2a7;
+  border: none;
+  border-bottom: 1px solid black;
+  margin-bottom: 1vh;
+}
+
+.btt-CE {
+  margin-top: 2vh;
+  width: 30vw;
+  height: 4vh;
+  background-color: #81007f;
+  color: #ffffff;
+  border: none;
+  font-size: 4vw;
+}
+
+/* Create Playlist styling*/
+.CreatePlaylistPage{
+  background-color: #81007f;
+  padding-top: 15vw;
 }
