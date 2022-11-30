@@ -25,7 +25,7 @@ function CreatePlaylist() {
       uploadData.append('image', e.target.files[0]);
 
       //send the file to our api
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/playlist`, uploadData);
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/upload`, uploadData);
 
       console.log(response.data.fileUrl);
       setPlaylistImg(response.data.fileUrl);
@@ -40,14 +40,14 @@ function CreatePlaylist() {
     e.preventDefault();
     try {
       const storedToken = localStorage.getItem('authToken');
-      await axios.post(
+      const response = await axios.post(
         `${process.env.REACT_APP_API_URL}/playlist`,
-        { title, description /*playlistImg: image*/ },
+        { title, description, playlistImg },
         {
           headers: { Authorization: `Bearer ${storedToken}` },
         }
       );
-      //navigate('/event/`${:id}`');
+      navigate(`/playlist/${response.data._id}`);
     } catch (error) {
       const errorDescription = error.response.data.message;
       setErrorMessage(errorDescription);
@@ -63,12 +63,20 @@ function CreatePlaylist() {
           <input className='int-CE' type='text' name='title' value={title} onChange={handleTitle} />
 
           <label>Description:</label>
-          <input className='int-CE' type='text' name='description' value={description} onChange={handleDescription} />
+          <input
+            className='int-CE'
+            type='text'
+            name='description'
+            value={description}
+            onChange={handleDescription}
+          />
 
           <label htmlFor='image'>Playlist Image</label>
           <input className='int-CE' type='file' name='image' onChange={handleUpload} />
 
-          <button className='btt-CE' type='submit'>Create playlist</button>
+          <button className='btt-CE' type='submit'>
+            Create playlist
+          </button>
         </form>
       </div>
     </div>

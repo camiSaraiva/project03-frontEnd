@@ -41,16 +41,33 @@ function Login(props) {
         <div className='form-container'>
           <form className='form-LG' onSubmit={handleLoginSubmit}>
             <label className='tlt-LG'>Email:</label>
-            <input className='ipt-em' type='email' name='email' value={email} onChange={handleEmail} />
+            <input
+              className='ipt-em'
+              type='email'
+              name='email'
+              value={email}
+              onChange={handleEmail}
+            />
 
             <label>Password:</label>
-            <input className='int-SU' type='password' name='password' value={password} onChange={handlePassword} />
+            <input
+              className='int-SU'
+              type='password'
+              name='password'
+              value={password}
+              onChange={handlePassword}
+            />
 
-            <button className='btt-LG' type='submit'>Login</button>
+            <button className='btt-LG' type='submit'>
+              Login
+            </button>
             {errorMessage && <p className='error-message'>{errorMessage}</p>}
 
             <p class='sp-LG'>Don't have an account yet?</p>
-            <Link className='LG-su' to={'/signup'}> Sign Up</Link>
+            <Link className='LG-su' to={'/signup'}>
+              {' '}
+              Sign Up
+            </Link>
           </form>
         </div>
       </div>
