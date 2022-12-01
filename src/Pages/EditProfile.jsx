@@ -49,7 +49,7 @@ function EditProfile() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`${process.env.REACT_APP_API_URL}/peofile/${id}`, {
+      await axios.put(`${process.env.REACT_APP_API_URL}/profile/${id}`, {
         email,
         username,
         profilePic,
