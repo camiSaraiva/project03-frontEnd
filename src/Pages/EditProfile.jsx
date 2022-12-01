@@ -53,6 +53,10 @@ function EditProfile() {
         email,
         username,
         profilePic,
+      }, {
+        headers: {
+          Authorization: `Bearer ${getToken}`,
+        },
       });
 
       //clear the inputs
