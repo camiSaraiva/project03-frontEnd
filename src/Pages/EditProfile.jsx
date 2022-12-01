@@ -37,7 +37,7 @@ function EditProfile() {
 
   const handleFileUpload = (e) => {
     const uploadData = new FormData();
-    uploadData.append('profilePic', e.target.files[0]);
+    uploadData.append('image', e.target.files[0]);
     service
       .uploadImage(uploadData)
       .then((response) => {
@@ -49,15 +49,19 @@ function EditProfile() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`${process.env.REACT_APP_API_URL}/profile/${id}`, {
-        email,
-        username,
-        profilePic,
-      }, {
-        headers: {
-          Authorization: `Bearer ${getToken}`,
+      await axios.put(
+        `${process.env.REACT_APP_API_URL}/profile/edit/${id}`,
+        {
+          email,
+          username,
+          profilePic,
         },
-      });
+        {
+          headers: {
+            Authorization: `Bearer ${getToken}`,
+          },
+        }
+      );
 
       //clear the inputs
       setEmail('');
