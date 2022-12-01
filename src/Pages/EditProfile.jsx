@@ -69,7 +69,7 @@ function EditProfile() {
       setProfilePic('');
 
       //redirect to the details view
-      navigate(`/profile/${id}`);
+      navigate(`/profile`);
     } catch (error) {
       console.log(error);
     }
