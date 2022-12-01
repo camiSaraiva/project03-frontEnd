@@ -1,42 +1,47 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import service from '../service/service';
+import NavbarSpPfl from '../Components/Navbar-sp-pfl';
 
 function EditProfile() {
-    const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [playlistImg, setPlaylistImg] = useState('');
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [profilePic, setProfilePic] = useState('');
 
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const handleTitle = (e) => setTitle(e.target.value);
-  const handleDescription = (e) => setDescription(e.target.value);
+  const getToken = localStorage.getItem('authToken');
 
-  const getPlaylist = async () => {
+  const getUser = async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/playlist/edit/${id}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/profile/${id}`, {
+        headers: {
+          Authorization: `Bearer ${getToken}`,
+        },
+      });
 
-      setTitle(response.data.title);
-      setDescription(response.data.description);
       console.log(response.data);
+      setUsername(response.data.title);
+      setEmail(response.data.description);
+      setProfilePic(response.data.profilePic);
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    getPlaylist();
+    getUser();
   }, []);
 
   const handleFileUpload = (e) => {
     const uploadData = new FormData();
-    uploadData.append('eventPic', e.target.files[0]);
+    uploadData.append('profilePic', e.target.files[0]);
     service
       .uploadImage(uploadData)
       .then((response) => {
-        setPlaylistImg(response.fileUrl);
+        setProfilePic(response.fileUrl);
       })
       .catch((err) => console.log('Error while uploading the file: ', err));
   };
@@ -44,36 +49,54 @@ function EditProfile() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`${process.env.REACT_APP_API_URL}/event/${id}`, {
-        title,
-        description,
-        playlistImg,
+      await axios.put(`${process.env.REACT_APP_API_URL}/peofile/${id}`, {
+        email,
+        username,
+        profilePic,
       });
 
       //clear the inputs
-      setTitle('');
-      setDescription('');
-      setPlaylistImg('');
+      setEmail('');
+      setUsername('');
+      setProfilePic('');
 
       //redirect to the details view
-      navigate(`/event/${id}`);
+      navigate(`/profile/${id}`);
     } catch (error) {
       console.log(error);
     }
   };
 
-  const deleteEvent = async () => {
-    try {
-      await axios.delete(`${process.env.REACT_APP_API_URL}/event/${id}`);
-      //after we delete we redirect back to the project list
-      navigate('/event');
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  return <div>
+  const handleUsername = (e) => setUsername(e.target.value);
+  const handleEmail = (e) => setEmail(e.target.value);
+  return (
+    <div>
+      <NavbarSpPfl />
+      <section className='EditEventPage'>
+        <h3 className='ev-tlt'>Edit Profile</h3>
+        <form onSubmit={handleSubmit} className='ev-frm'>
+          <label htmlFor='title' className='tlt-LG'>
+            Email
+          </label>
+          <input value={email} className='ipt-em' type='text' name='email' onChange={handleEmail} />
+          <label htmlFor='tile'>username</label>
+          <input
+            value={username}
+            className='ipt-em'
+            type='text'
+            name='title'
+            onChange={handleUsername}
+          />
 
-  </div>;
+          <label htmlFor='profilePic'>Profile picture</label>
+          <input className='int-CE' type='file' name='image' onChange={handleFileUpload} />
+          <button className='btt-CE' type='submit'>
+            Save
+          </button>
+        </form>
+      </section>
+    </div>
+  );
 }
 
 export default EditProfile;

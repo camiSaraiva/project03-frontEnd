@@ -36,15 +36,16 @@ function Profile() {
           </section>
           <section className='pfl-evnt'>
             <h2 className='prl-tlt'>All your events</h2>
-          {profile.events && profile.events.map((event) => {
-              return (
-                <div key={event._id}>
-                  <Link className='prf-elkn' to={`/event/${event._id}`}>
-                    <p>{event.title}</p>
-                  </Link>
-                </div>
-              );
-            })} 
+            {profile.events &&
+              profile.events.map((event) => {
+                return (
+                  <div key={event._id}>
+                    <Link className='prf-elkn' to={`/event/${event._id}`}>
+                      <p>{event.title}</p>
+                    </Link>
+                  </div>
+                );
+              })}
           </section>
         </div>
       )}

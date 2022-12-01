@@ -56,7 +56,8 @@ code {
 .pfl-nav {
   text-decoration: none;
   color: #0100bd;
-  margin-left: 45vw;
+  margin-left: 5vw;
+  margin-right: 2vw;
 }
 
 /*Footer slyling*/
@@ -307,6 +308,18 @@ code {
   font-size: 4vw;
 }
 
+.ev-lnk {
+  text-decoration: none;
+  text-align: center;
+  background-color: #81007f;
+  width: 30vw;
+  height: 5vh;
+  color: #ffffff;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  padding-top: 1.5vh;
+}
+
 /* Create Playlist styling*/
 .CreatePlaylistPage {
   background-color: #81007f;
@@ -343,4 +356,35 @@ code {
 .bd-p404 {
   background-color: #000000;
   height: 100vh;
+}
+.ed-dcp {
+  text-align: center;
+  color: #81007f;
+  margin-top: 2vh;
+}
+.ed-sp {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+.ed-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 100vw;
+  height: 78vh;
+  border-radius: 35vw 0vw 0vw 0vw;
+  background-color: #0ec2a7;
+}
+.pfl-lo {
+  text-decoration: none;
+  width: 25vw;
+  margin-right: 2vw;
+  color: #0100bd;
 }

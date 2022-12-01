@@ -97,7 +97,8 @@ function EditEvent() {
     try {
       const apiCall = await axios.get(`	https://api.spotify.com/v1/search`, {
         headers: {
-          Authorization: `Bearer BQBUZp0BHn_R8XntJeBLEGu61LxcCfqg5z3OL-5SMjflRWUjPMUwCQFeybE-jtsA5axDGCMFWWq8tLqdDDIufkKEFwaERsg3MHeQwovJGRo2oyFRRFanIdmFq493stlL8WowMedYR46tAYSCYeG3D4WnIEr1xjEuM9ntFlmz7g-rrUCasgBie1dpMBrJgeBYEXiPcWcWgREAYhnhMTW47Ut9e1yp67rrpntHfeIqNyS4H_y9JAxNQGWbgEUYDm5w7Q9_On_DLY4DhS2sVDlAau1dTsy1ctSgCuLqIFsE1fWeKvWRE1Y2dOg`,
+          Authorization:
+            'Bearer BQBajfbHH0jk_HfLhFtmdzcpR2vsaBLlf0MAtM9myRUt0SaEaCiLNx0VLaNg9w3RnxsV-tLwmcPVGL-N2Ci8CSxx_Djy0T21ZEexpVU7NWIt2phPyL5mxPMuywIYIm0I4pWT_PUqVsHgqQq2ovtRcR5oIYic3XbcMqCaolkt4BcSZExcd2aoW2CZg0mfjaSUCbIPbFY2ZnNQbnW9-LTWWd_BJGUaM2EyRJyz-NS1UMbQ3UdeQfrkr26Y0PaXdQDuKN2R-BO0rhKaKx8S5CdW8Gvpt8dkpqeeN_hhYli1TlvU8wjvVjlJnug',
           Accept: 'application/json',
           'Content-Type': 'application/json',
         },
@@ -121,13 +122,13 @@ function EditEvent() {
       track: track,
     };
 
-    const apiCall = await axios.put(`${process.env.REACT_APP_API_URL}/addSong/${id}`, song , {
+    const apiCall = await axios.put(`${process.env.REACT_APP_API_URL}/addSong/${id}`, song, {
       headers: {
         Authorization: `Bearer ${getToken}`,
       },
     });
 
-    console.log(apiCall.data)
+    console.log(apiCall.data);
   };
 
   return (
@@ -153,6 +154,10 @@ function EditEvent() {
           <label htmlFor='eventPic'>Event Image</label>
           <input className='int-CE' type='file' name='image' onChange={handleFileUpload} />
 
+          <Link to='/profile' className=''>
+            Profile
+          </Link>
+
           <label htmlFor='search' className='tlt-LG'>
             Search
           </label>
@@ -165,6 +170,9 @@ function EditEvent() {
           />
 
           <div className='searchResult' style={{ height: 300, 'overflow-y': 'scroll' }}>
+            <button className='btt-CE' type='submit'>
+              Save
+            </button>
             {tracks &&
               tracks.map((track) => {
                 return (
@@ -182,10 +190,6 @@ function EditEvent() {
                 );
               })}
           </div>
-
-          <button className='btt-CE' type='submit'>
-            Save
-          </button>
         </form>
         {/* Delete the project */}
         <button onClick={deleteEvent}>Delete</button>

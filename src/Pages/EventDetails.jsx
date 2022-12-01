@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from '../Contexts/auth.context';
+import NavbarSp from '../Components/Navbar-SP';
 
 function EventDetails() {
   const [eventDets, setEventDets] = useState({});
@@ -63,33 +64,39 @@ function EventDetails() {
     <div className='EventDetails'>
       {eventDets && (
         <>
-          <h1>{eventDets.title}</h1>
+          <NavbarSp />
           <img src={eventDets.eventPic} style={{ width: 200 }} alt='event illustration' />
-          <p>{eventDets.description}</p>
+          <h1 className='ev-tlt'>{eventDets.title}</h1>
+          <p className='ed-dcp'>{eventDets.description}</p>
         </>
       )}
+      <section className='ed-container'>
+        <h3 className='prl-tlt'>Playlist:</h3>
+        {eventDets.playlists &&
+          eventDets.playlists.map((song) => {
+            return (
+              <Link onClick={() => removeSong(song.track)}>
+                <span key={song.track} className='ed-sp'>
+                  <img src={song.image} style={{ width: 50 }} alt='artist pic' />
+                  <p>{song.artist}</p>
+                  <p>{song.track}</p>
+                </span>
+              </Link>
+            );
+          })}
 
-      <h3>Playlist:</h3>
-      {eventDets.playlists &&
-        eventDets.playlists.map((song) => {
-          return (
-            <Link onClick={() => removeSong(song.track)}>
-              <span key={song.track}>
-                <img src={song.image} style={{ width: 50 }} alt='artist pic' />
-                <p>{song.artist}</p>
-                <p>{song.track}</p>
-              </span>
+        {eventDets && (
+          <>
+            {' '}
+            <Link to={`/event/edit/${eventDets._id}`} className='ev-lnk'>
+              Edit Event
             </Link>
-          );
-        })}
-
-      {eventDets && (
-        <>
-          {' '}
-          <Link to={`/event/edit/${eventDets._id}`}>Edit Event</Link>
-          <Link onClick={() => deleteEvent()}>Delete Event</Link>{' '}
-        </>
-      )}
+            <Link onClick={() => deleteEvent()} className='ev-lnk'>
+              Delete Event
+            </Link>{' '}
+          </>
+        )}
+      </section>
     </div>
   );
 }
