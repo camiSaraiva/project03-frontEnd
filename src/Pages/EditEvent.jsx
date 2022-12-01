@@ -95,10 +95,10 @@ function EditEvent() {
 
   const getTracks = async () => {
     try {
-      const apiCall = await axios.get(`	https://api.spotify.com/v1/search`, {
+      const apiCall = await axios.get(`https://api.spotify.com/v1/search`, {
         headers: {
           Authorization:
-            'Bearer BQB71sQiXJBn0BX2-2MitZCt5fAOpeiBQ7H-ZNq_o3l3PSeBD7q8-HJ01tTQfSdlYCoJqJVKf5Ag_NACxSYzVTXZwPnughMQoKj8a0CY6kt6ffOYHFW38708Fe6j75IdGDoZ0LwTYPYdKgt8H-kyVB-kBU_NDz3ImGfyLx2_OE_pvTGLZcGSIbz65A1cinRBrZiNK6X24JjKX2qwiK6vpQtwppMlcGDK15AAlD9-WdUdn2MfamcZef-nsBgtke48KhsbIdQ0xQQJU1Tm3_gZZi_-UCALCctOaIOlo2LLd-nyyeZlnwCUlsA',
+            'Bearer BQAaz-XKOqP-GWHzscxAvNE2n--0Wi0SPdhke0NjhW5npmZeTC-C62vDHx9dpKIvPhy4ivHtHqYcvfo4z27R0oZ8LMV-u9D6-itDMnSQOfIKHzaM_DHo_ee-i32Elf6WO9Bboc4swtkeGXicwleGJ__tSd4P_Pdr9nM9eCVayKTOqzmP-ECJbeCpgF8ZU80kkQa9JOy-Q7xLd7plvoy6Ow1b2AURfhXQ5cwKXzjLD3HdulcVNQlnMUnBs9hDbhIYYG5P_6hB1IaL-wMJxhgQuBOrIIeQR3SiJ47BZJ3FTaLNoL3-bIkmj94',
           Accept: 'application/json',
           'Content-Type': 'application/json',
         },
@@ -153,7 +153,6 @@ function EditEvent() {
 
           <label htmlFor='eventPic'>Event Image</label>
           <input className='int-CE' type='file' name='image' onChange={handleFileUpload} />
-
 
           <label htmlFor='search' className='tlt-LG'>
             Search
