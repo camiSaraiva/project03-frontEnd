@@ -14,6 +14,7 @@ function CreatePlaylist() {
   const handleTitle = (e) => setTitle(e.target.value);
   const handleDescription = (e) => setDescription(e.target.value);
 
+  const getToken = localStorage.getItem('authToken');
   const navigate = useNavigate();
 
   const handleUpload = async (e) => {
@@ -25,7 +26,11 @@ function CreatePlaylist() {
       uploadData.append('image', e.target.files[0]);
 
       //send the file to our api
-      const response = await axios.post(`${process.env.REACT_APP_API_URL}/upload`, uploadData);
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/upload`, uploadData, {
+        headers: {
+          Authorization: `Bearer ${getToken}`,
+        },
+      });
 
       console.log(response.data.fileUrl);
       setPlaylistImg(response.data.fileUrl);
@@ -47,7 +52,9 @@ function CreatePlaylist() {
           headers: { Authorization: `Bearer ${storedToken}` },
         }
       );
-      navigate(`/playlist/${response.data._id}`);
+
+      console.log(response.data);
+     navigate(`/playlist/${response.data._id}`);
     } catch (error) {
       const errorDescription = error.response.data.message;
       setErrorMessage(errorDescription);

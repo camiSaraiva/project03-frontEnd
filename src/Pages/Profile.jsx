@@ -7,9 +7,9 @@ import axios from 'axios';
 
 //Fazer duas páginas de profile, uma para se estiver logado e outra se não.
 function Profile() {
-  const [profile, setProfile] = useState(null);
+  const [profile, setProfile] = useState({});
 
-  const { user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
   const getUser = async () => {
     try {
@@ -23,7 +23,7 @@ function Profile() {
 
   useEffect(() => {
     getUser();
-  }, []);
+  }, [user]);
 
   return (
     <div>
@@ -36,15 +36,15 @@ function Profile() {
           </section>
           <section className='pfl-evnt'>
             <h2 className='prl-tlt'>All your events</h2>
-            {profile.events.map((event) => {
+          {profile.events && profile.events.map((event) => {
               return (
-                <div>
+                <div key={event._id}>
                   <Link className='prf-elkn' to={`/event/${event._id}`}>
                     <p>{event.title}</p>
                   </Link>
                 </div>
               );
-            })}
+            })} 
           </section>
         </div>
       )}

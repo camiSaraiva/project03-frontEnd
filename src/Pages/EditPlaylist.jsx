@@ -12,12 +12,18 @@ function EditPlaylist() {
   const { id } = useParams();
   const navigate = useNavigate();
 
+  const getToken = localStorage.getItem('authToken');
+
   const handleTitle = (e) => setTitle(e.target.value);
   const handleDescription = (e) => setDescription(e.target.value);
 
   const getPlaylist = async () => {
     try {
-      const response = await axios.get(`${process.env.REACT_APP_API_URL}/playlist/edit/${id}`);
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/playlist/${id}`, {
+        headers: {
+          Authorization: `Bearer ${getToken}`,
+        },
+      });
 
       setTitle(response.data.title);
       setDescription(response.data.description);
@@ -45,10 +51,14 @@ function EditPlaylist() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`${process.env.REACT_APP_API_URL}/event/${id}`, {
+      await axios.put(`${process.env.REACT_APP_API_URL}/playlist/${id}`, {
         title,
         description,
         playlistImg,
+      }, {
+        headers: {
+          Authorization: `Bearer ${getToken}`,
+        },
       });
 
       //clear the inputs
@@ -65,7 +75,11 @@ function EditPlaylist() {
 
   const deleteEvent = async () => {
     try {
-      await axios.delete(`${process.env.REACT_APP_API_URL}/event/${id}`);
+      await axios.delete(`${process.env.REACT_APP_API_URL}/event/${id}`, {
+        headers: {
+          Authorization: `Bearer ${getToken}`,
+        },
+      });
       //after we delete we redirect back to the project list
       navigate('/event');
     } catch (error) {

@@ -7,6 +7,8 @@ import { AuthContext } from '../Contexts/auth.context';
 function NavbarPrfl() {
   const { user } = useContext(AuthContext);
   const { loggedIn, logout } = useContext(AuthContext);
+  
+
   return (
     <div className='nvb-container'>
       <div className='d-img'>
@@ -16,9 +18,11 @@ function NavbarPrfl() {
         <Link className='pfl-nav' to='/event/create'>
           Create event
         </Link>
-        <Link className='pfl-nav' to={`/profile/${user._id}/edit`}>
-          Edit profile
-        </Link>
+        {user && (
+          <Link className='pfl-nav' to={`/profile/${user._id}/edit`}>
+            Edit profile
+          </Link>
+        )}
       </div>
       <div>
         {loggedIn && (
