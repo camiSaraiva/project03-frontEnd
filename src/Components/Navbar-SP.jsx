@@ -8,9 +8,6 @@ function NavbarSp() {
       <div className='d-img'>
         <Link to='/'>
           <img className='logo' src={Logo} alt='logo' />
-          <Link to='/profile' className=''>
-            Profile
-          </Link>
         </Link>
       </div>
     </div>

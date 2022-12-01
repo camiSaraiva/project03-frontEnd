@@ -9,7 +9,7 @@ function NavbarSpPfl() {
         <Link to='/'>
           <img className='logo' src={Logo} alt='logo' />
         </Link>
-        <Link to='/profile' className='pfl-nav'>
+        <Link to='/profile' className='pfl-nav-lnk'>
           Profile
         </Link>
       </div>

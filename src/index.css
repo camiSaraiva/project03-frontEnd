@@ -15,17 +15,6 @@ code {
 
 /*Navbar styling*/
 
-.nvb-container {
-  background-color: #ffd02c;
-  width: 100vw;
-  height: 7vh;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: center;
-  align-content: center;
-}
 .d-img {
   margin-left: 3vw;
   margin-top: 1vh;
@@ -58,6 +47,24 @@ code {
   color: #0100bd;
   margin-left: 5vw;
   margin-right: 2vw;
+  width: 18vw;
+}
+.pfl-nav-lnk {
+  text-decoration: none;
+  color: #0100bd;
+  margin-left: 60vw;
+  margin-right: 2vw;
+}
+.nvb-container {
+  background-color: #ffd02c;
+  width: 100vw;
+  height: 7vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
 }
 
 /*Footer slyling*/
@@ -260,6 +267,7 @@ code {
 
 .pfl-lo {
   text-decoration: none;
+
 }
 
 .pfl-evnt {
@@ -388,4 +396,10 @@ code {
   width: 25vw;
   margin-right: 2vw;
   color: #0100bd;
+}
+
+.evD-tlt{
+  text-align: center;
+  color: #81007f;
+  margin-top: -10vh;
 }

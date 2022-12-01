@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { AuthContext } from '../Contexts/auth.context';
-import NavbarSp from '../Components/Navbar-SP';
+import NavbarSpPfl from '../Components/Navbar-sp-pfl';
 
 function EventDetails() {
   const [eventDets, setEventDets] = useState({});
@@ -64,14 +64,13 @@ function EventDetails() {
     <div className='EventDetails'>
       {eventDets && (
         <>
-          <NavbarSp />
-          <img src={eventDets.eventPic} style={{ width: 200 }} alt='event illustration' />
+          <NavbarSpPfl />
           <h1 className='ev-tlt'>{eventDets.title}</h1>
           <p className='ed-dcp'>{eventDets.description}</p>
         </>
       )}
       <section className='ed-container'>
-        <h3 className='prl-tlt'>Playlist:</h3>
+        <h3 className='evD-tlt'>Tracks</h3>
         {eventDets.playlists &&
           eventDets.playlists.map((song) => {
             return (

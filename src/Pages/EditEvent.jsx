@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import service from '../service/service';
-import NavbarSp from '../Components/Navbar-SP';
+import NavbarSpPfl from '../Components/Navbar-sp-pfl';
 
 function EditEvent() {
   const [title, setTitle] = useState('');
@@ -98,7 +98,7 @@ function EditEvent() {
       const apiCall = await axios.get(`https://api.spotify.com/v1/search`, {
         headers: {
           Authorization:
-            'Bearer BQAaz-XKOqP-GWHzscxAvNE2n--0Wi0SPdhke0NjhW5npmZeTC-C62vDHx9dpKIvPhy4ivHtHqYcvfo4z27R0oZ8LMV-u9D6-itDMnSQOfIKHzaM_DHo_ee-i32Elf6WO9Bboc4swtkeGXicwleGJ__tSd4P_Pdr9nM9eCVayKTOqzmP-ECJbeCpgF8ZU80kkQa9JOy-Q7xLd7plvoy6Ow1b2AURfhXQ5cwKXzjLD3HdulcVNQlnMUnBs9hDbhIYYG5P_6hB1IaL-wMJxhgQuBOrIIeQR3SiJ47BZJ3FTaLNoL3-bIkmj94',
+            'Bearer BQAoRp5cLvS7qvgJ5whoX6KchLfZABzq7hcaxW8Fsk_ETGPsMRXpH5rk1UnseORJ6cv1UhScz8sRtWZV3w__XSw_DtNAlEVXpG7dwqo0TQznLuz5Qm_7QPWCaHNwsqlIjDtULQzsP7xL18yQoQJ3Z6C57ulxegdWMENMRnAuIidPO3haOpOYJfRjhB97cnRSvAGJ-o6xP0tGn1qpfDpYjgsiOQjd_96Oo3pzh4s9owFGAsiJMvpwYvMdnXRd_n8I9K40G8cwbMSywu4Yz-KmKEnNYXCFNYZ95_b5ZY9us_lyetD4eL5jd2E',
           Accept: 'application/json',
           'Content-Type': 'application/json',
         },
@@ -133,7 +133,7 @@ function EditEvent() {
 
   return (
     <div>
-      <NavbarSp />
+      <NavbarSpPfl />
       <section className='EditEventPage'>
         <h3 className='ev-tlt'>Edit Event</h3>
         <form onSubmit={handleSubmit} className='ev-frm'>
@@ -146,13 +146,10 @@ function EditEvent() {
             name='description'
             value={description}
             cols='20'
-            rows='3'
+            rows='1'
             onChange={handleDescription}
             className='int-SU'
           ></textarea>
-
-          <label htmlFor='eventPic'>Event Image</label>
-          <input className='int-CE' type='file' name='image' onChange={handleFileUpload} />
 
           <label htmlFor='search' className='tlt-LG'>
             Search

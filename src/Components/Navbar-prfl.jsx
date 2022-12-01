@@ -22,8 +22,6 @@ function NavbarPrfl() {
             Edit profile
           </Link>
         )}
-      </div>
-      <div>
         {loggedIn && (
           <Link className='pfl-lo' to='/' onClick={logout}>
             LogOut

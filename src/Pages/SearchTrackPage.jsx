@@ -10,7 +10,7 @@ function SearchTrackPage() {
     try {
       const apiCall = await axios.get(`	https://api.spotify.com/v1/search`, {
         headers: {
-          Authorization: `Bearer`,
+          Authorization: `Bearer `,
           Accept: 'application/json',
           'Content-Type': 'application/json',
         },
