@@ -98,7 +98,7 @@ function EditEvent() {
       const apiCall = await axios.get(`https://api.spotify.com/v1/search`, {
         headers: {
           Authorization:
-            'Bearer BQAoRp5cLvS7qvgJ5whoX6KchLfZABzq7hcaxW8Fsk_ETGPsMRXpH5rk1UnseORJ6cv1UhScz8sRtWZV3w__XSw_DtNAlEVXpG7dwqo0TQznLuz5Qm_7QPWCaHNwsqlIjDtULQzsP7xL18yQoQJ3Z6C57ulxegdWMENMRnAuIidPO3haOpOYJfRjhB97cnRSvAGJ-o6xP0tGn1qpfDpYjgsiOQjd_96Oo3pzh4s9owFGAsiJMvpwYvMdnXRd_n8I9K40G8cwbMSywu4Yz-KmKEnNYXCFNYZ95_b5ZY9us_lyetD4eL5jd2E',
+            'Bearer BQDdq61vog0JxNs7fz9KjgJJ9s44y15dyeMhIugeI_oEm9y36VhorpMxGQvo2KthMyHsbe1aw4hlTSlL5VfRa0seGXNk_jUY--DqzLHwnzqZO2h7FaUVa5jx-FaREz1OBW4YnPDZk9-vIoaBioELxHKfmzHNw-q3oJnLQzztnpF1MBf0VLrKChiTmZvY9Pvw4me8-Fk_dY0Zj-i3Lqgo6QfGkfxeuEQ5pLU6qjEnEr6ZDWb7jfR2kgNNlmWk3eIlOKbvXY5w8Q-o4CdAG1g7ecxqaxhdeA6OguVYb8a515-4-LHPabBnA5s-o6xP0tGn1qpfDpYjgsiOQjd_96Oo3pzh4s9owFGAsiJMvpwYvMdnXRd_n8I9K40G8cwbMSywu4Yz-KmKEnNYXCFNYZ95_b5ZY9us_lyetD4eL5jd2E',
           Accept: 'application/json',
           'Content-Type': 'application/json',
         },
