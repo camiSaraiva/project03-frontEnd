@@ -98,7 +98,7 @@ function EditEvent() {
       const apiCall = await axios.get(`https://api.spotify.com/v1/search`, {
         headers: {
           Authorization:
-            'Bearer BQBxNlhnBMkGkdIKiHkWtCJxaP-dd0cB9kvVaMtlOqtZ7bBxAMN3322--HrUSbE9-pIZZKQQtILwYXXeLz3_IEcKtzoaner2sSvnwbsQvjA9nFBSdE_RY6ybMFqfPUYjSlOsCI43zWXrr5KpNy2wI1bCWrk4X_xKgNAbGnhQ_GQC9oGY88H00zm8JQp1vJ1JKDdy1bS952WE1liK7Ai8bXgMDfOAnqXCR5NrLHCDvLrA-p4TsYwQVFiyQwZ1ErheIc52bM5inBdYyrdw5l71y9nf4rPLzoThE869FC1Ef-1TPzgZ3mT7Oq4',
+            'Bearer BQD6z0t9pHgtCvE2b-TO_CbgrYlq3LnR-rMTPRempotF_o_Q4ilIBpChQ4paLr34nzrRr2fxVKSmUd6WuyNR55z85WK8cZDvQf1sPNVSRgS7-4WkWEBTLkY6A5uUaibpytLYHdr_KG91z3xOu6BuwUGh7349HRGn7LoaDQPZTdt-pJ8-IWJhA_zlCUwAa13Z52_ESCOdImo1Z9fL8G339iW6urK7awWehmVZn1hCISSZ-D7vN5djyxJbdlwjiT8jaOra0BmNXGH7RZrDgFn7jYFpTJ_-2MzYSdHoL97wuJNfu9YplwHPWbo',
           Accept: 'application/json',
           'Content-Type': 'application/json',
         },
